@@ -6,8 +6,11 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+ //entidad de relacion a la base de datos
+
 @Entity
-@Table(name = "categorias")
+@Table(name = "categorias") //indica la clase
 public class Categoria {
     
     @Id
@@ -31,7 +34,7 @@ public class Categoria {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) //relacion entre categoria 1 a producto N = cascadetype.all ( hace referencia a que se eliminan todos los pdoructos al eliminar la cartegoria)
     private List<Producto> productos;
     
     // Constructores
@@ -42,7 +45,7 @@ public class Categoria {
         this.descripcion = descripcion;
     }
     
-    // Getters y Setters
+    // Getters y Setters para modificar y acceder a los atributos
     public Long getId() {
         return id;
     }

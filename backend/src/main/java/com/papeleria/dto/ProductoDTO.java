@@ -15,7 +15,7 @@ public class ProductoDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     
-    // Constructores
+    // Constructores para inicializar
     public ProductoDTO() {}
     
     public ProductoDTO(Long id, String nombre, String sku, BigDecimal precio, Integer stock,
@@ -33,7 +33,7 @@ public class ProductoDTO {
         this.updatedAt = updatedAt;
     }
     
-    // Getters y Setters
+    // Getters y Setters para modificar y acceder a los atributos
     public Long getId() {
         return id;
     }

@@ -15,13 +15,14 @@ import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categorias")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/categorias") // asegura que todos los enpoinds siempore lleven la base de /api/categorias
+@CrossOrigin(origins = "http://localhost:4200") // permite las peticiones de front
 public class CategoriaController {
     
     @Autowired
     private CategoriaService categoriaService;
-    
+
+    //lista las categeorias con los filtros
     @GetMapping
     public ResponseEntity<Page<CategoriaDTO>> findAll(
             @RequestParam(required = false) String q,
@@ -41,25 +42,29 @@ public class CategoriaController {
         return ResponseEntity.ok(categorias);
     }
     
+    //Busca una categoría por su ID.
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaDTO> findById(@PathVariable Long id) {
         CategoriaDTO categoria = categoriaService.findById(id);
         return ResponseEntity.ok(categoria);
     }
     
+    //Crea una nueva categoría a partir del cuerpo recibido en JSON.
     @PostMapping
     public ResponseEntity<CategoriaDTO> create(@Valid @RequestBody Categoria categoria) {
         CategoriaDTO savedCategoria = categoriaService.save(categoria);
         return ResponseEntity.ok(savedCategoria);
     }
-    
+
+    //Actualiza una categoría completa, reemplazando sus datos.
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaDTO> update(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
         categoria.setId(id);
         CategoriaDTO updatedCategoria = categoriaService.save(categoria);
         return ResponseEntity.ok(updatedCategoria);
     }
-    
+
+    //Solo cambia el estado activo/inactivo de la categoría.
     @PatchMapping("/{id}/activo")
     public ResponseEntity<CategoriaDTO> updateActivo(
             @PathVariable Long id, 
@@ -68,12 +73,14 @@ public class CategoriaController {
         return ResponseEntity.ok(updatedCategoria);
     }
     
+    //Elimina la categoría por ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         categoriaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-    
+
+    //Lista únicamente las categorías activas.
     @GetMapping("/activas")
     public ResponseEntity<List<CategoriaDTO>> findAllActive() {
         List<CategoriaDTO> categorias = categoriaService.findAllActive();

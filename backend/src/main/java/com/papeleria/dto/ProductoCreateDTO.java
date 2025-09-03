@@ -26,7 +26,7 @@ public class ProductoCreateDTO {
     
     private Boolean activo = true;
     
-    // Constructores
+    // Constructores para inicializar
     public ProductoCreateDTO() {}
     
     public ProductoCreateDTO(String nombre, String sku, BigDecimal precio, Integer stock, Long categoriaId) {
@@ -37,7 +37,7 @@ public class ProductoCreateDTO {
         this.categoriaId = categoriaId;
     }
     
-    // Getters y Setters
+    // Getters y Setters para modificar y acceder a los atributos
     public String getNombre() {
         return nombre;
     }
