@@ -1,0 +1,87 @@
+<div class="form-container">
+  <div class="header">
+    <h2>{{ isEditMode ? 'Editar' : 'Nuevo' }} Producto</h2>
+    <button mat-button routerLink="/productos">
+      <mat-icon>arrow_back</mat-icon>
+      Volver
+    </button>
+  </div>
+
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Nombre del producto">
+        <mat-error *ngIf="productoForm.get('nombre')?.hasError('required')">
+          El nombre es obligatorio
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('nombre')?.hasError('minlength')">
+          El nombre debe tener al menos 3 caracteres
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('nombre')?.hasError('maxlength')">
+          El nombre no puede exceder 100 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>SKU</mat-label>
+        <input matInput formControlName="sku" placeholder="Código SKU del producto">
+        <mat-error *ngIf="productoForm.get('sku')?.hasError('required')">
+          El SKU es obligatorio
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('sku')?.hasError('minlength')">
+          El SKU debe tener al menos 3 caracteres
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('sku')?.hasError('maxlength')">
+          El SKU no puede exceder 30 caracteres
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>Precio</mat-label>
+        <input matInput type="number" formControlName="precio" placeholder="0.00" min="0" step="0.01">
+        <span matTextPrefix>$</span>
+        <mat-error *ngIf="productoForm.get('precio')?.hasError('required')">
+          El precio es obligatorio
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('precio')?.hasError('min')">
+          El precio debe ser mayor o igual a 0
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Stock</mat-label>
+        <input matInput type="number" formControlName="stock" placeholder="0" min="0">
+        <mat-error *ngIf="productoForm.get('stock')?.hasError('required')">
+          El stock es obligatorio
+        </mat-error>
+        <mat-error *ngIf="productoForm.get('stock')?.hasError('min')">
+          El stock debe ser mayor o igual a 0
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="form-field">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="categoriaId" placeholder="Seleccione una categoría">
+        <mat-option *ngFor="let cat of categorias" [value]="cat.id">
+          {{ cat.nombre }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="productoForm.get('categoriaId')?.hasError('required')">
+        La categoría es obligatoria
+      </mat-error>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-button type="button" routerLink="/productos">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="productoForm.invalid || isSubmitting">
+        <mat-icon *ngIf="!isSubmitting">{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+        <span *ngIf="isSubmitting">Guardando...</span>
+        <span *ngIf="!isSubmitting">{{ isEditMode ? 'Guardar' : 'Crear' }}</span>
+      </button>
+    </div>
+  </form>
+</div>

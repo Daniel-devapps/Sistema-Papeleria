@@ -1,0 +1,14 @@
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\controller\ProductoController.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\dto\ProductoDTO.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\service\CategoriaService.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\repository\ProductoRepository.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\SistemaPapeleriaApplication.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\exception\GlobalExceptionHandler.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\config\CorsConfig.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\controller\CategoriaController.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\entity\Producto.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\dto\CategoriaDTO.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\repository\CategoriaRepository.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\dto\ProductoCreateDTO.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\entity\Categoria.java
+C:\Users\marlo\Desktop\Entregablas Devapps\SistemasPapeleria\backend\src\main\java\com\papeleria\service\ProductoService.java

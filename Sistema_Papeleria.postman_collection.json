@@ -1,0 +1,339 @@
+{
+  "info": {
+    "name": "Sistema de Papelería API",
+    "description": "Colección de Postman para probar la API del Sistema de Gestión de Papelería devapps",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categorías",
+      "item": [
+        {
+          "name": "Listar Categorías",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categorias?page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id,desc"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar Categorías",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categorias",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias"],
+              "query": [
+                 {
+      "id": 6,
+      "nombre": "sadsadsds",
+      "descripcion": "sadsad",
+      "activo": true,
+      "createdAt": "2025-09-03T08:43:57.500855",
+      "updatedAt": "2025-09-03T08:43:57.500855"
+    },
+    {
+      "id": 5,
+      "nombre": "asddas",
+      "descripcion": "asdsad",
+      "activo": true,
+      "createdAt": "2025-09-03T08:43:47.224861",
+      "updatedAt": "2025-09-03T08:43:47.224861"
+    },
+    {
+      "id": 4,
+      "nombre": "prueb",
+      "descripcion": "dddsd",
+      "activo": true,
+      "createdAt": "2025-09-03T08:43:43.201717",
+      "updatedAt": "2025-09-03T08:43:43.201717"
+    },
+    {
+      "id": 3,
+      "nombre": "prueba 3",
+      "descripcion": "shdhad",
+      "activo": true,
+      "createdAt": "2025-09-03T08:42:55.325314",
+      "updatedAt": "2025-09-03T08:42:55.325314"
+    }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Categoría por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categorias/6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear Categoría",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Nueva Categoría\",\n  \"descripcion\": \"Descripción de la nueva categoría\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/categorias",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Categoría",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Categoría Actualizada\",\n  \"descripcion\": \"Descripción actualizada\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/categorias/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cambiar Estado Categoría",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categorias/6/activo?value=false",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias", "1", "activo"],
+              "query": [
+                {
+                  "key": "value",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Categorías Activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categorias/activas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "categorias", "activas"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "Listar Productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos?page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id,desc"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar Productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos?q=sasdsa&categoriaId=5&activo=true&page=0&size=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos"],
+              "query": [
+                {
+      "id": 3,
+      "nombre": "sasdsa",
+      "sku": "sda",
+      "precio": 23,
+      "stock": 2,
+      "categoriaId": 5,
+      "categoriaNombre": "asddas",
+      "activo": true,
+      "createdAt": "2025-09-03T09:01:27.643065",
+      "updatedAt": "2025-09-03T09:01:27.643065"
+    }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "3"]
+            }
+          }
+        },
+        {
+          "name": "Crear Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Nuevo Producto\",\n  \"sku\": \"NP-001\",\n  \"precio\": 5.99,\n  \"stock\": 50,\n  \"categoriaId\": 1,\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Producto Actualizado\",\n  \"sku\": \"PA-001\",\n  \"precio\": 6.99,\n  \"stock\": 75,\n  \"categoriaId\": 1,\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/productos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cambiar Estado Producto",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos/3/activo?value=false",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1", "activo"],
+              "query": [
+                {
+                  "key": "value",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

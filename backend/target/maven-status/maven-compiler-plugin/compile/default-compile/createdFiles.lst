@@ -1,0 +1,14 @@
+com\papeleria\controller\ProductoController.class
+com\papeleria\dto\CategoriaDTO.class
+com\papeleria\dto\ProductoDTO.class
+com\papeleria\config\CorsConfig.class
+com\papeleria\service\ProductoService.class
+com\papeleria\service\CategoriaService.class
+com\papeleria\exception\GlobalExceptionHandler.class
+com\papeleria\repository\CategoriaRepository.class
+com\papeleria\SistemaPapeleriaApplication.class
+com\papeleria\entity\Categoria.class
+com\papeleria\repository\ProductoRepository.class
+com\papeleria\controller\CategoriaController.class
+com\papeleria\dto\ProductoCreateDTO.class
+com\papeleria\entity\Producto.class

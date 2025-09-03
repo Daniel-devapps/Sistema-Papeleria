@@ -1,0 +1,101 @@
+<div class="header">
+  <h2>Gestión de Productos</h2>
+  <button mat-raised-button color="primary" routerLink="/productos/nuevo">
+    <mat-icon>add</mat-icon>
+    Nuevo Producto
+  </button>
+</div>
+
+<div class="search-container">
+  <mat-form-field class="search-field">
+    <mat-label>Buscar</mat-label>
+    <input matInput [formControl]="searchControl" placeholder="Buscar por nombre o SKU...">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field class="category-field">
+    <mat-label>Categoría</mat-label>
+    <mat-select [formControl]="categoryControl">
+      <mat-option value="">Todas</mat-option>
+      <mat-option *ngFor="let cat of categorias" [value]="cat.id">
+        {{ cat.nombre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="status-field">
+    <mat-label>Estado</mat-label>
+    <mat-select [formControl]="statusControl">
+      <mat-option [value]="undefined">Todos</mat-option>
+      <mat-option [value]="true">Activo</mat-option>
+      <mat-option [value]="false">Inactivo</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+</div>
+
+<div class="table-container">
+  <table mat-table [dataSource]="productos" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sku">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SKU</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.sku }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+      <td mat-cell *matCellDef="let producto">${{ producto.precio | number:'1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.stock }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef>Categoría</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.categoriaNombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="activo">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let producto">
+        <mat-chip [color]="producto.activo ? 'accent' : 'warn'" selected>
+          {{ producto.activo ? 'Activo' : 'Inactivo' }}
+        </mat-chip>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let producto">
+        <button mat-icon-button [routerLink]="['/productos', producto.id]" matTooltip="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="toggleActivo(producto)" 
+                [matTooltip]="producto.activo ? 'Desactivar' : 'Activar'">
+          <mat-icon>{{ producto.activo ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteProducto(producto.id!)" matTooltip="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]"
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
