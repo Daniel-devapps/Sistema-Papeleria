@@ -10,7 +10,7 @@ public class CategoriaDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     
-    // Constructores
+    // Constructores para inicializar
     public CategoriaDTO() {}
     
     public CategoriaDTO(Long id, String nombre, String descripcion, Boolean activo, 
@@ -23,7 +23,7 @@ public class CategoriaDTO {
         this.updatedAt = updatedAt;
     }
     
-    // Getters y Setters
+    // Getters y Setters para modificar y acceder a los atributos
     public Long getId() {
         return id;
     }

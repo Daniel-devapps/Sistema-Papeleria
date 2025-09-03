@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository //maneja consultas personalizadas (filtros, validaciones de duplicados, activas)
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
     
     @Query("SELECT c FROM Categoria c WHERE " +
@@ -18,10 +18,10 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
                                  @Param("activo") Boolean activo, 
                                  Pageable pageable);
     
-    boolean existsByNombre(String nombre);
+    boolean existsByNombre(String nombre); //verifica si existe una categoria
     
-    boolean existsByNombreAndIdNot(String nombre, Long id);
+    boolean existsByNombreAndIdNot(String nombre, Long id); //Verifica si existe otra categoría con el mismo nombre
     
     // Método para encontrar categorías activas
-    java.util.List<Categoria> findByActivoTrue();
+    java.util.List<Categoria> findByActivoTrue(); //devulve todas las categorias
 }
